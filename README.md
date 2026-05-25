@@ -2,7 +2,13 @@
 
 A sample [Feast](https://github.com/feast-dev/feast) feature store wired for **Model Context Protocol (MCP)** in Cursor: online feature serving plus registry introspection.
 
-Watch the setup walkthrough: [`demo.mov`](demo.mov)
+## Demo video
+
+Setup walkthrough: feature store, MCP servers, and Cursor integration.
+
+<video src="https://raw.githubusercontent.com/patelchaitany/feast-agentic/main/demo.mov" controls width="100%">
+  Your browser does not support inline playback. <a href="demo.mov">Download demo.mov</a> or open the <a href="https://github.com/patelchaitany/feast-agentic/blob/main/demo.mov">file on GitHub</a>.
+</video>
 
 ## What's included
 
