@@ -15,6 +15,7 @@ Setup walkthrough: feature store, MCP servers, and Cursor integration.
 - **Feature server MCP** (port 6566) — `get_online_features`, `push`, `materialize`, etc.
 - **Registry server MCP** (port 6567) — list/get entities, feature views, data sources, lineage, search
 - **Cursor MCP config** — `.cursor/mcp.json`
+- **feast-db MCP** — SQL introspection from a connection string ([DB_MCP.md](docs/DB_MCP.md))
 
 ## Prerequisites
 

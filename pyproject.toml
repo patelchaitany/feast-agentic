@@ -8,4 +8,12 @@ dependencies = [
     "feast[mcp,milvus,grpcio] @ git+https://github.com/feast-dev/feast@master",
     "grpcio-health-checking",
     "grpcio-reflection",
+    "mcp>=1.0",
+    "sqlalchemy>=2.0",
+    "psycopg[binary]>=3.1",
+    "pymysql>=1.1",
+    "pymssql>=2.3",
 ]
+
+[project.scripts]
+feast-db-mcp = "mcp_db_server.server:main"

@@ -2,6 +2,20 @@
 
 Based on [Feast MCP Feature Server docs](https://github.com/feast-dev/feast/blob/master/docs/reference/feature-servers/mcp-feature-server.md) and the [`mcp_feature_store` example](https://github.com/feast-dev/feast/blob/master/examples/mcp_feature_store/).
 
+## Database SQL (`feast-db`)
+
+Stdio MCP for schema exploration and read-only SQL (connection string + database type).
+
+| Tool | Purpose |
+|------|---------|
+| `execute_sql` | Run SQL (`read_only=true` by default) |
+| `list_database_tables` | List tables |
+| `describe_database_table` | Column / PK / FK metadata |
+
+Supported types: `postgres`, `mysql`, `sqlite`, `mssql`.
+
+See [docs/DB_MCP.md](docs/DB_MCP.md). Toggle **feast-db** in **Settings → MCP** (no separate server process).
+
 ## Feature server (`feast-features`)
 
 **`feature_repo/feature_store.yaml`** (required):

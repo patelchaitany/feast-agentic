@@ -1,5 +1,9 @@
 {
   "mcpServers": {
+    "feast-db": {
+      "command": "uv",
+      "args": ["run", "python", "-m", "mcp_db_server.server"]
+    },
     "feast-features": {
       "url": "http://127.0.0.1:6566/mcp"
     },
