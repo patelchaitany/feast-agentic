@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv/
+
+# Generated Feast data (created by setup_data.py)
+feature_repo/data/
+
+# Local IDE / agent config (not required for setup)
+.claude/
+
+# Duplicate MCP config at repo root (use .cursor/mcp.json)
+.mcp.json

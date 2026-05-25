@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "feast-features": {
+      "url": "http://127.0.0.1:6566/mcp"
+    },
+    "feast-registry": {
+      "url": "http://127.0.0.1:6567/mcp"
+    }
+  }
+}

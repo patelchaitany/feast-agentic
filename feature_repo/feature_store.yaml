@@ -1,0 +1,34 @@
+project: feast_agentic
+provider: local
+registry:
+  registry_type: sql
+  path: sqlite:///data/registry.db
+  mcp:
+    enabled: true
+
+online_store:
+  type: milvus
+  path: data/online_store.db
+  vector_enabled: true
+  embedding_dim: 384
+  index_type: "IVF_FLAT"
+  metric_type: "COSINE"
+  nlist: 128
+
+offline_store:
+  type: file
+
+entity_key_serialization_version: 3
+
+feature_server:
+  type: mcp
+  enabled: true
+  mcp_enabled: true
+  mcp_transport: sse
+  mcp_server_name: "feast-agentic-server"
+  mcp_server_version: "1.0.0"
+  feature_logging:
+    enabled: false
+
+auth:
+  type: no_auth

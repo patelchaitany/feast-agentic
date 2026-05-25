@@ -1,0 +1,11 @@
+[project]
+name = "feast-agentic"
+version = "0.1.0"
+description = "Feast feature store with MCP for Cursor agents"
+readme = "README.md"
+requires-python = ">=3.12,<3.15"
+dependencies = [
+    "feast[mcp,milvus,grpcio] @ git+https://github.com/feast-dev/feast@master",
+    "grpcio-health-checking",
+    "grpcio-reflection",
+]
