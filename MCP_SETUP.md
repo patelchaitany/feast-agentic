@@ -85,13 +85,21 @@ cd /Users/chpatel/projects/feast-agentic
 uv run python scripts/verify_mcp.py
 ```
 
-## Claude Code (`.mcp.json`)
+## Claude Code (`.mcp.json` + `.claude/settings.local.json`)
 
-Cursor accepts URL-only entries in `.cursor/mcp.json`. Claude Code requires a transport `type` (Feast uses SSE):
+Claude Code reads MCP from **project root `.mcp.json`**, not from `mcpServers` inside `settings.local.json` alone.
+
+**`.mcp.json`** (stdio needs `"type": "stdio"`):
 
 ```json
 {
   "mcpServers": {
+    "feast-db": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["run", "python", "-m", "mcp_db_server.server"],
+      "env": {}
+    },
     "feast-features": {
       "type": "sse",
       "url": "http://127.0.0.1:6566/mcp"
@@ -104,14 +112,41 @@ Cursor accepts URL-only entries in `.cursor/mcp.json`. Claude Code requires a tr
 }
 ```
 
-Add via CLI from the project root:
+**`.claude/settings.local.json`** (approve project MCP + tool permissions):
 
-```bash
-claude mcp add --transport sse feast-features http://127.0.0.1:6566/mcp --scope project
-claude mcp add --transport sse feast-registry http://127.0.0.1:6567/mcp --scope project
+```json
+{
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": ["feast-db", "feast-features", "feast-registry"],
+  "permissions": {
+    "allow": [
+      "mcp__feast-db__*",
+      "mcp__feast-features__*",
+      "mcp__feast-registry__*"
+    ],
+    "deny": []
+  }
+}
 ```
 
-Without `"type": "sse"`, Claude reports: `command: expected string, received undefined`.
+Verify from project root:
+
+```bash
+claude mcp list
+# feast-db should show: ✓ Connected, Type: stdio
+```
+
+If `uv` is not on Claude’s PATH, use the full path to `uv` in `.mcp.json` (`which uv`).
+
+Add via CLI (optional):
+
+```bash
+claude mcp add --transport stdio --scope project feast-db -- uv run python -m mcp_db_server.server
+claude mcp add --transport sse --scope project feast-features http://127.0.0.1:6566/mcp
+claude mcp add --transport sse --scope project feast-registry http://127.0.0.1:6567/mcp
+```
+
+Without `"type": "sse"` on URL servers, Claude reports: `command: expected string, received undefined`.
 
 ## After changing config
 

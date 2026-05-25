@@ -12,6 +12,3 @@ feature_repo/data/
 
 # Local IDE / agent config (not required for setup)
 .claude/
-
-# Duplicate MCP config at repo root (use .cursor/mcp.json)
-.mcp.json

@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "feast-db": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["run", "python", "-m", "mcp_db_server.server"],
+      "env": {}
+    },
+    "feast-features": {
+      "type": "sse",
+      "url": "http://127.0.0.1:6566/mcp"
+    },
+    "feast-registry": {
+      "type": "sse",
+      "url": "http://127.0.0.1:6567/mcp"
+    }
+  }
+}

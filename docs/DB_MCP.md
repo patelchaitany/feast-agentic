@@ -28,6 +28,10 @@ SQL tools for agents building Feast feature views from an existing database.
 
 Pass credentials in the tool call only — do not commit them to git. Prefer environment variables in agent prompts.
 
+## Claude Code setup
+
+Project **`.mcp.json`** must include `feast-db` with `"type": "stdio"`. Approve it in **`.claude/settings.local.json`** (`enableAllProjectMcpServers`, `mcp__feast-db__*` permissions). Run `claude mcp list` — expect `feast-db: ✓ Connected`.
+
 ## Cursor setup
 
 Already in `.cursor/mcp.json`:
