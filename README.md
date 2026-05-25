@@ -6,9 +6,8 @@ A sample [Feast](https://github.com/feast-dev/feast) feature store wired for **M
 
 Setup walkthrough: feature store, MCP servers, and Cursor integration.
 
-<video src="https://raw.githubusercontent.com/patelchaitany/feast-agentic/main/demo.mov" controls width="100%">
-  Your browser does not support inline playback. <a href="demo.mov">Download demo.mov</a> or open the <a href="https://github.com/patelchaitany/feast-agentic/blob/main/demo.mov">file on GitHub</a>.
-</video>
+- **View / download:** [demo.mov on GitHub](https://github.com/patelchaitany/feast-agentic/blob/main/demo.mov)
+- **Direct download:** [raw demo.mov](https://raw.githubusercontent.com/patelchaitany/feast-agentic/main/demo.mov)
 
 ## What's included
 
